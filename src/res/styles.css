@@ -1,7 +1,17 @@
 .root{
-    -fx-background-color: #383838;
+    -fx-background-color: #282c34;
     -fx-font-smoothing-type: gray;
     -fx-font-weight: 800;
+}
+
+#draggableArea{
+    -fx-background-color: #282c34;
+    -fx-background-radius: 5px;
+}
+
+#mainContainer{
+    -fx-background-color: #282c34;
+    -fx-background-radius: 5px;
 }
 
 .label{
@@ -11,24 +21,48 @@
 
 .button{
     -fx-background-color: transparent;
-    -fx-text-fill: #fff;
+}
+
+.button:hover{
+    -fx-cursor: hand;
 }
 
 #closeBtn{
     -fx-text-fill: rgba(255,255,255,0.3);
+    -fx-border-radius: 0;
     -fx-font-weight: 800;
 }
 
 #closeBtn:hover{
     -fx-background-color: #ec2020;
     -fx-text-fill: #fff;
+    -fx-cursor: default;
 }
 
 #minimizeBtn{
     -fx-text-fill: rgba(255,255,255,0.3);
+    -fx-cursor: default;
+    -fx-font-weight: 800;
 }
 
 #minimizeBtn:hover{
     -fx-background-color: #333a43;
     -fx-text-fill: #fff;
+    -fx-cursor: default;
+
+}
+
+#loginBtn{
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-padding: 7px 25px;
+    -fx-border-color: #3a92ef;
+    -fx-text-fill: #3a92ef;
+}
+
+#loginBtn:hover{
+    -fx-background-color: #3a92ef;
+    -fx-text-fill: #fff;
+    -fx-border-style: solid;
+    -fx-cursor: hand;
 }
