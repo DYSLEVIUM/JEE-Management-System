@@ -1,33 +1,29 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ToolBar;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
-    int height = 1000;
-    int width = 600;
+    public static int height = 1000;
+    public static int width = 600;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-//        primaryStage.initStyle(StageStyle.UNDECORATED); //  remove windows decoration
+        primaryStage.initStyle(StageStyle.UNDECORATED); //  remove windows decoration
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         primaryStage.setTitle("Login | Register");
-        primaryStage.setScene(new Scene(root, this.height, this.width));
+
+        Scene scene = new Scene(root, this.height, this.width);
+        scene.getStylesheets().add(getClass().getResource("../res/styles.css").toExternalForm());   //  linking stylesheet
+        primaryStage.setScene(scene);
 
         Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
 

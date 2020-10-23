@@ -1,0 +1,34 @@
+.root{
+    -fx-background-color: #383838;
+    -fx-font-smoothing-type: gray;
+    -fx-font-weight: 800;
+}
+
+.label{
+    -fx-text-fill: #718194;
+    -fx-font-weight: 500;
+}
+
+.button{
+    -fx-background-color: transparent;
+    -fx-text-fill: #fff;
+}
+
+#closeBtn{
+    -fx-text-fill: rgba(255,255,255,0.3);
+    -fx-font-weight: 800;
+}
+
+#closeBtn:hover{
+    -fx-background-color: #ec2020;
+    -fx-text-fill: #fff;
+}
+
+#minimizeBtn{
+    -fx-text-fill: rgba(255,255,255,0.3);
+}
+
+#minimizeBtn:hover{
+    -fx-background-color: #333a43;
+    -fx-text-fill: #fff;
+}
