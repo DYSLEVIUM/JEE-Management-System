@@ -1,24 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../res/styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <AnchorPane fx:id="draggableArea" layoutY="-3.0" prefHeight="20.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutY="6.0" prefHeight="17.0" prefWidth="993.0" text="JEE Management System" textFill="#333a43" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Button fx:id="closeBtn" onAction="#closeBtnClick" layoutX="946.0" layoutY="1.0" mnemonicParsing="false" prefWidth="35.0" text="X" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="minimizeBtn" onAction="#minimizeBtnClick" layoutX="894.0" layoutY="1.0" mnemonicParsing="false" prefWidth="35.0" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="closeBtn" layoutX="946.0" layoutY="1.0" mnemonicParsing="false" onAction="#closeBtnClick" prefWidth="35.0" text="X" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="minimizeBtn" layoutX="894.0" layoutY="1.0" mnemonicParsing="false" onAction="#minimizeBtnClick" prefWidth="35.0" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-10.0" layoutY="33.0" prefHeight="567.0" prefWidth="1010.0">
+      <AnchorPane fx:id="loginPane" layoutY="33.0" prefHeight="567.0" prefWidth="1010.0">
          <children>
-            <Line fx:id="divider" stroke="#718194" strokeWidth="1.0" />
-            <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="160.0" layoutY="146.0" text="Login" textFill="WHITE" />
+            <AnchorPane prefHeight="567.0" prefWidth="400.0">
+               <children>
+                  <JFXTextField fx:id="rollOrIdBtn" layoutX="30.0" layoutY="128.0" prefHeight="35.0" prefWidth="250.0" promptText="Roll Number / ID">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="30.0" layoutY="30.0" text="Login">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <JFXPasswordField fx:id="passwordBtn" layoutX="30.0" layoutY="200.0" prefHeight="35.0" prefWidth="250.0" promptText="Password">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXPasswordField>
+                  <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="38.0" layoutY="284.0" onAction="#loginBtnClick" text="Login" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="registerPane" layoutX="400.0" prefHeight="567.0" prefWidth="600.0">
+               <children>
+                  <Label layoutX="35.0" layoutY="30.0" text="Register">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="fullName" layoutX="33.0" layoutY="120.0" prefHeight="35.0" prefWidth="200.0" promptText="Full Name" />
+                  <JFXTextField fx:id="fatherName" layoutX="33.0" layoutY="195.0" prefHeight="35.0" prefWidth="200.0" promptText="Father's Name" />
+                  <JFXTextField fx:id="motherName" layoutX="326.0" layoutY="195.0" prefHeight="35.0" prefWidth="200.0" promptText="Mother's Name" />
+                  <JFXRadioButton fx:id="generalBtn" layoutX="98.0" layoutY="275.0" text="General" textFill="#718194">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="category" />
+                     </toggleGroup></JFXRadioButton>
+                  <Label layoutX="33.0" layoutY="275.0" text="Category :" />
+                  <JFXRadioButton fx:id="reservationBtn" layoutX="179.0" layoutY="275.0" text="Reservation" textFill="#718194" toggleGroup="$category" />
+                  <JFXRadioButton fx:id="maleBtn" layoutX="377.0" layoutY="275.0" text="Male" textFill="#718194">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="sex" />
+                     </toggleGroup></JFXRadioButton>
+                  <JFXRadioButton fx:id="femaleBtn" layoutX="443.0" layoutY="275.0" text="Female" textFill="#718194" toggleGroup="$sex" />
+                  <Label layoutX="326.0" layoutY="275.0" text="Sex :" />
+                  <JFXButton fx:id="registerBtn" buttonType="RAISED" layoutX="34.0" layoutY="450.0" onAction="#registerBtnClick" text="Register" textFill="WHITE" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
