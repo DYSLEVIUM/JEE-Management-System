@@ -3,14 +3,19 @@ package sample;
 import com.jfoenix.controls.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 import javax.swing.*;
@@ -30,6 +35,9 @@ public class loginController implements Initializable {
 
     @FXML
     private Button closeBtn;
+
+    @FXML
+    private Button minimizeBtn;
 
     @FXML
     private JFXTextField candidateName;
@@ -133,19 +141,57 @@ public class loginController implements Initializable {
             rs = stmt.executeQuery(sql);
 
             if(rs.next()){
-                Stage candidateStage = new Stage();
-                Scene scene = new Scene(new BorderPane(), 1000 , 600);
+                //closing current stage
+                Stage stage = (Stage) closeBtn.getScene().getWindow();
+                stage.close();
 
+                //making another stage
+                Stage candidateStage = new Stage();
+                candidateStage.initStyle(StageStyle.UNDECORATED);
+
+                Parent admin = FXMLLoader.load(getClass().getResource("candidate.fxml"));
+
+                Scene scene = new Scene(admin, Main.height , Main.width);
+
+                scene.getStylesheets().add(getClass().getResource("../res/candidate.css").toExternalForm());
                 candidateStage.setTitle("Candidate Details - Student");
+
+                scene.setFill(Color.TRANSPARENT);
+                candidateStage.initStyle(StageStyle.TRANSPARENT);
+
+                Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
+
+                //  setting position of window at center
+                candidateStage.setX((screenBounds.getMaxX()-Main.height)/2);
+                candidateStage.setY((screenBounds.getMaxY()-Main.width)/2);
 
                 candidateStage.setScene(scene);
                 candidateStage.show();
             }else{
-                if(id.equals("2019UGCS097") && pwd.equals("qwaszx")){
-                    Stage adminStage = new Stage();
-                    Scene scene = new Scene(new BorderPane(), 1000 , 600);
+                if(id.equals("test") && pwd.equals("test")){
+                    //closing current stage
+                    Stage stage = (Stage) closeBtn.getScene().getWindow();
+                    stage.close();
 
+                    //making another stage
+                    Stage adminStage = new Stage();
+                    adminStage.initStyle(StageStyle.UNDECORATED);
+
+                    Parent admin = FXMLLoader.load(getClass().getResource("admin.fxml"));
+
+                    Scene scene = new Scene(admin, Main.height , Main.width);
+
+                    scene.getStylesheets().add(getClass().getResource("../res/admin.css").toExternalForm());
                     adminStage.setTitle("Candidate Details - Admin");
+
+                    scene.setFill(Color.TRANSPARENT);
+                    adminStage.initStyle(StageStyle.TRANSPARENT);
+
+                    Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
+
+                    //  setting position of window at center
+                    adminStage.setX((screenBounds.getMaxX()-Main.height)/2);
+                    adminStage.setY((screenBounds.getMaxY()-Main.width)/2);
 
                     adminStage.setScene(scene);
                     adminStage.show();
@@ -156,7 +202,6 @@ public class loginController implements Initializable {
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e+"");
         }
-
     }
 
     public void registerBtnClick(){
@@ -194,7 +239,7 @@ public class loginController implements Initializable {
     }
 
     public void minimizeBtnClick(){
-        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        Stage stage = (Stage) minimizeBtn.getScene().getWindow();
         stage.setIconified(true);
     }
 }

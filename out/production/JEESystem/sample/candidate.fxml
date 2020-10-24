@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../res/admin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.candidateController">
+    <children>
+        <AnchorPane fx:id="draggableArea" layoutY="-3.0" prefHeight="20.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutY="6.0" prefHeight="17.0" prefWidth="993.0" text="Candidate Details" textFill="#333a43" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                <Button fx:id="closeBtn" layoutX="946.0" layoutY="1.0" mnemonicParsing="false" onAction="#closeBtnClick" prefWidth="35.0" text="X" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <Button fx:id="minimizeBtn" layoutX="894.0" layoutY="1.0" mnemonicParsing="false" onAction="#minimizeBtnClick" prefWidth="35.0" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="0.0" />
+                <Label layoutX="455.0" layoutY="6.0" text="Candidate" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,49 @@
+.root{
+    -fx-background-color: #282c34;
+    -fx-font-smoothing-type: antialiased;
+    -fx-font-weight: 800;
+    -fx-font-family: 'Montserrat';
+}
+
+.label{
+    -fx-text-fill: #718194;
+    -fx-font-weight: 500;
+}
+
+#draggableArea{
+    -fx-background-color: #282c34;
+    -fx-background-radius: 5px;
+}
+
+#mainContainer{
+    -fx-background-color: #282c34;
+    -fx-background-radius: 5px;
+}
+
+.button{
+    -fx-background-color: transparent;
+}
+
+#closeBtn{
+    -fx-text-fill: rgba(255,255,255,0.3);
+    -fx-border-radius: 0;
+    -fx-font-weight: 800;
+}
+
+#closeBtn:hover{
+    -fx-background-color: #ec2020;
+    -fx-text-fill: #fff;
+    -fx-cursor: default;
+}
+
+#minimizeBtn{
+    -fx-text-fill: rgba(255,255,255,0.3);
+    -fx-cursor: default;
+    -fx-font-weight: 800;
+}
+
+#minimizeBtn:hover{
+    -fx-background-color: #333a43;
+    -fx-text-fill: #fff;
+    -fx-cursor: default;
+}

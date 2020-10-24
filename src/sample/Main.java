@@ -22,7 +22,7 @@ public class Main extends Application {
         Parent login = FXMLLoader.load(getClass().getResource("login.fxml"));
 
         Scene scene = new Scene(login, this.height, this.width);
-        scene.getStylesheets().add(getClass().getResource("../res/styles.css").toExternalForm());   //  linking stylesheet
+        scene.getStylesheets().add(getClass().getResource("../res/main.css").toExternalForm());   //  linking stylesheet
         primaryStage.setTitle("JEE Management System");
 
         scene.setFill(Color.TRANSPARENT);

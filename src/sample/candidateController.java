@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class adminController implements Initializable {
+public class candidateController implements Initializable {
     @FXML
     private AnchorPane draggableArea;
 
@@ -50,6 +50,4 @@ public class adminController implements Initializable {
         Stage stage = (Stage) minimizeBtn.getScene().getWindow();
         stage.setIconified(true);
     }
-
-
 }
