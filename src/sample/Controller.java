@@ -35,10 +35,10 @@ public class Controller implements Initializable {
     private  JFXTextField motherName;
 
     @FXML
-    private JFXRadioButton loginBtn;
+    private JFXButton loginBtn;
 
     @FXML
-    private JFXRadioButton registerBtn;
+    private JFXButton registerBtn;
 
     @FXML
     private JFXRadioButton generalBtn;
