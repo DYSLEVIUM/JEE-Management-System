@@ -1,7 +1,16 @@
 .root{
     -fx-background-color: #282c34;
-    -fx-font-smoothing-type: gray;
+    -fx-font-smoothing-type: antialiased;
     -fx-font-weight: 800;
+    -fx-font-family: 'Montserrat';
+}
+
+#loginLabel{
+    -fx-font-size: 4em;
+}
+
+#registerLabel{
+    -fx-font-size: 4em;
 }
 
 #draggableArea{
@@ -19,12 +28,50 @@
     -fx-font-weight: 500;
 }
 
+.radio-button {
+    -fx-cursor: hand;
+}
+
 .button{
     -fx-background-color: transparent;
 }
 
 .button:hover{
     -fx-cursor: hand;
+}
+
+.combo-box{
+    -fx-prompt-text-fill: #718194;
+}
+
+.combo-box .arrow{
+    -fx-background-color: #333a43;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #282c34;
+    -fx-text-fill: #3a92ef;
+}
+
+.combo-box-popup .list-view {
+    -fx-border-width: 0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.3) , 10, 0.0 , 0 , 0 );
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover {
+    -fx-background: #333a43;
+    -fx-background-color: #333a43;
+    -fx-text-fill: #3a92ef;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #3a92ef;
+    -fx-text-fill: #333a43;
+}
+
+.combo-box-base {
+    -fx-background-color: #282c34, #282c34, #282c34, #282c34;
+    -fx-text-fill: #333a43;
 }
 
 #closeBtn{

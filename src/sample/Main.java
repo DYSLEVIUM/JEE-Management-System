@@ -23,8 +23,11 @@ public class Main extends Application {
 
         Scene scene = new Scene(login, this.height, this.width);
         scene.getStylesheets().add(getClass().getResource("../res/styles.css").toExternalForm());   //  linking stylesheet
+        primaryStage.setTitle("JEE Management System");
+
         scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
+
         primaryStage.setScene(scene);
 
         Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo

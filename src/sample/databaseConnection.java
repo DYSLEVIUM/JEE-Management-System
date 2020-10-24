@@ -14,10 +14,8 @@ public class databaseConnection {
         try{
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(JDBC_URL);    //  connecting to database
-            System.out.println("Connected to sqlite database!");
         }catch (ClassNotFoundException | SQLException e){
             JOptionPane.showMessageDialog(null,e+"");
-            System.out.println(e+"");
         }
         return conn;
     }

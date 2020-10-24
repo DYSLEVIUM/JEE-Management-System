@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -9,62 +10,73 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../res/styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../res/styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
    <children>
+      <Line endX="375.0" endY="550.0" startX="375.0" startY="50.0" stroke="#15191e" strokeWidth="0.5" />
       <AnchorPane fx:id="draggableArea" layoutY="-3.0" prefHeight="20.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutY="6.0" prefHeight="17.0" prefWidth="993.0" text="JEE Management System" textFill="#333a43" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
             <Button fx:id="closeBtn" layoutX="946.0" layoutY="1.0" mnemonicParsing="false" onAction="#closeBtnClick" prefWidth="35.0" text="X" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <Button fx:id="minimizeBtn" layoutX="894.0" layoutY="1.0" mnemonicParsing="false" onAction="#minimizeBtnClick" prefWidth="35.0" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="0.0" />
+            <Label layoutX="455.0" layoutY="6.0" text="Login / Register" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="loginPane" layoutY="33.0" prefHeight="567.0" prefWidth="1010.0">
          <children>
             <AnchorPane prefHeight="567.0" prefWidth="400.0">
                <children>
-                  <JFXTextField fx:id="rollOrIdBtn" layoutX="30.0" layoutY="128.0" prefHeight="35.0" prefWidth="250.0" promptText="Roll Number / ID">
+                  <JFXTextField fx:id="rollOrIdBtn" layoutX="75.0" layoutY="163.0" prefHeight="35.0" prefWidth="250.0" promptText="Roll Number / ID">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </JFXTextField>
-                  <Label layoutX="30.0" layoutY="30.0" text="Login">
-                     <font>
-                        <Font size="40.0" />
-                     </font>
+                  <Label fx:id="loginLabel" layoutX="141.0" layoutY="40.0" text="Login">
                   </Label>
-                  <JFXPasswordField fx:id="passwordBtn" layoutX="30.0" layoutY="200.0" prefHeight="35.0" prefWidth="250.0" promptText="Password">
+                  <JFXPasswordField fx:id="passwordBtn" layoutX="75.0" layoutY="238.0" prefHeight="35.0" prefWidth="250.0" promptText="Password">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </JFXPasswordField>
-                  <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="38.0" layoutY="284.0" onAction="#loginBtnClick" text="Login" textFill="WHITE" />
+                  <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="158.0" layoutY="450.0" onAction="#loginBtnClick" text="Login" textFill="WHITE" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="registerPane" layoutX="400.0" prefHeight="567.0" prefWidth="600.0">
+            <AnchorPane fx:id="registerPane" layoutX="400.0" prefHeight="567.0" prefWidth="601.0">
                <children>
-                  <Label layoutX="35.0" layoutY="30.0" text="Register">
-                     <font>
-                        <Font size="40.0" />
-                     </font>
+                  <Label fx:id="registerLabel" layoutX="212.0" layoutY="40.0" text="Register">
                   </Label>
-                  <JFXTextField fx:id="fullName" layoutX="33.0" layoutY="120.0" prefHeight="35.0" prefWidth="200.0" promptText="Full Name" />
-                  <JFXTextField fx:id="fatherName" layoutX="33.0" layoutY="195.0" prefHeight="35.0" prefWidth="200.0" promptText="Father's Name" />
-                  <JFXTextField fx:id="motherName" layoutX="326.0" layoutY="195.0" prefHeight="35.0" prefWidth="200.0" promptText="Mother's Name" />
-                  <JFXRadioButton fx:id="generalBtn" layoutX="98.0" layoutY="275.0" text="General" textFill="#718194">
+                  <JFXTextField fx:id="candidateName" layoutX="22.0" layoutY="166.0" prefHeight="35.0" prefWidth="250.0" promptText="Candidate's Name" />
+                  <JFXTextField fx:id="fatherName" layoutX="22.0" layoutY="285.0" prefHeight="35.0" prefWidth="250.0" promptText="Father's Name" />
+                  <JFXTextField fx:id="motherName" layoutX="22.0" layoutY="344.0" prefHeight="35.0" prefWidth="250.0" promptText="Mother's Name" />
+                  <JFXRadioButton fx:id="generalBtn" layoutX="409.0" layoutY="176.0" selected="true" text="General" textFill="#718194">
                      <toggleGroup>
                         <ToggleGroup fx:id="category" />
                      </toggleGroup></JFXRadioButton>
-                  <Label layoutX="33.0" layoutY="275.0" text="Category :" />
-                  <JFXRadioButton fx:id="reservationBtn" layoutX="179.0" layoutY="275.0" text="Reservation" textFill="#718194" toggleGroup="$category" />
-                  <JFXRadioButton fx:id="maleBtn" layoutX="377.0" layoutY="275.0" text="Male" textFill="#718194">
+                  <Label layoutX="308.0" layoutY="175.0" text="Category :">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <JFXRadioButton fx:id="reservationBtn" layoutX="480.0" layoutY="176.0" text="Reservation" textFill="#718194" toggleGroup="$category" AnchorPane.rightAnchor="15.0" />
+                  <JFXRadioButton fx:id="maleBtn" layoutX="409.0" layoutY="230.0" selected="true" text="Male" textFill="#718194">
                      <toggleGroup>
                         <ToggleGroup fx:id="sex" />
                      </toggleGroup></JFXRadioButton>
-                  <JFXRadioButton fx:id="femaleBtn" layoutX="443.0" layoutY="275.0" text="Female" textFill="#718194" toggleGroup="$sex" />
-                  <Label layoutX="326.0" layoutY="275.0" text="Sex :" />
-                  <JFXButton fx:id="registerBtn" buttonType="RAISED" layoutX="34.0" layoutY="450.0" onAction="#registerBtnClick" text="Register" textFill="WHITE" />
+                  <JFXRadioButton fx:id="femaleBtn" layoutX="493.0" layoutY="230.0" text="Female" textFill="#718194" toggleGroup="$sex" />
+                  <Label layoutX="308.0" layoutY="228.0" text="Sex :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <JFXButton fx:id="registerBtn" buttonType="RAISED" layoutX="258.0" layoutY="450.0" onAction="#registerBtnClick" text="Register" textFill="WHITE" />
+                  <Label layoutX="308.0" layoutY="275.0" text="Date of Birth :">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <JFXComboBox fx:id="daydropdown" layoutX="306.0" layoutY="323.0" prefHeight="31.0" prefWidth="59.0" promptText="Day" unFocusColor="#333a43" />
+                  <JFXComboBox fx:id="monthdropdown" layoutX="381.0" layoutY="323.0" prefHeight="31.0" prefWidth="113.0" promptText="Month" unFocusColor="#333a43" />
+                  <JFXComboBox fx:id="yeardropdown" layoutX="510.0" layoutY="328.0" promptText="Year" unFocusColor="#333a43" AnchorPane.rightAnchor="15.0" />
+                  <JFXPasswordField fx:id="regPassword" layoutX="22.0" layoutY="225.0" prefHeight="35.0" prefWidth="250.0" promptText="Password" />
                </children>
             </AnchorPane>
          </children>
