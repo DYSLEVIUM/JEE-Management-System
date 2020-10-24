@@ -12,9 +12,9 @@ Follow the following steps to run this project :
 
 1.  Run the following commands in terminal:
 
-`$ git clone https://github.com/Pushpakant/JEE-Management-System`
+  - `$ git clone https://github.com/Pushpakant/JEE-Management-System`
 
-`$ cd JEE-Management-System`
+  - `$ cd JEE-Management-System`
 
 2.  If you are using IntelliJ IDEA, just open this project in IntelliJ IDEA and skip to step 5.
 
