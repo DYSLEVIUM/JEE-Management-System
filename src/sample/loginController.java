@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -131,13 +130,32 @@ public class loginController implements Initializable {
 
     public void loginBtnClick(){
         try{
-            String id = rollOrIdBtn.getText();
+            String sid = rollOrIdBtn.getText();
             String pwd = passwordBtn.getText();
+
+            String category;
+
+            if(sid.charAt(sid.length()-1)=='G'){
+                category = "general";
+            }else if(sid.charAt(sid.length()-1)=='R'){
+                category = "reservation";
+            }else{
+                throw new Exception("Incorrect Roll Number!");
+            }
+
+            int id = 0;
+            for(int i=0;i<sid.length()-1;++i){
+                if(sid.charAt(i)>='0'&& sid.charAt(i)<='9'){
+                    id=id*10+(sid.charAt(i)-'0');
+                }else{
+                    throw new Exception("Incorrect Roll Number!");
+                }
+            }
 
             conn = databaseConnection.connect();
             stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM students WHERE students.rollnumber='"+id+"' AND students.password='"+pwd+"'";
+            String sql = "SELECT * FROM students WHERE students.rollnumber='"+id+"' AND students.password='"+pwd+"' AND students.category='"+category+"'";
             rs = stmt.executeQuery(sql);
 
             if(rs.next()){
@@ -168,7 +186,7 @@ public class loginController implements Initializable {
                 candidateStage.setScene(scene);
                 candidateStage.show();
             }else{
-                if(id.equals("test") && pwd.equals("test")){
+                if(sid.equals("test") && pwd.equals("test")){
                     //closing current stage
                     Stage stage = (Stage) closeBtn.getScene().getWindow();
                     stage.close();
@@ -200,7 +218,7 @@ public class loginController implements Initializable {
             }
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null,e+"");
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
     }
 
@@ -221,12 +239,41 @@ public class loginController implements Initializable {
             String dobMonth = (String) monthdropdown.getValue();
             int dobYear = (int) yeardropdown.getValue();
 
-            Stage stage = new Stage();
-            Scene scene = new Scene(new BorderPane(), 1000 , 600);
-            stage.setTitle("Candidate Details");
+            conn = databaseConnection.connect();
+            stmt = conn.createStatement();
 
-            stage.setScene(scene);
-            stage.show();
+            String sql;
+
+            //  checking if the candidate already exists
+            sql = "SELECT * FROM students WHERE students.studentName='"+studentName+"' AND students.password='"+password+"' AND students.category='"+category+"' AND students.fName='"+fName+"' AND students.mName='"+mName+"' AND students.dobD='"+dobDay+"' AND students.dobM='"+dobMonth+"' AND students.dobY='"+dobYear+"'";
+            rs = stmt.executeQuery(sql);
+
+            if(rs.next()){
+                throw new Exception("Candidate Alredy exists!");
+            }
+
+            //  inserting data to database
+            sql = "INSERT INTO students(password, studentName, fName, mName, sex, category, dobD, dobM, dobY) VALUES ('"+password+"','"+studentName+"', '"+fName+"','"+mName+"', '"+selectedSex+"', '"+category+"', '"+dobDay+"', '"+dobMonth+"', '"+dobYear+"')";
+            stmt.executeUpdate(sql);
+
+            //  getting the roll number from database
+            sql = "SELECT * FROM students WHERE students.studentName='"+studentName+"' AND students.password='"+password+"' AND students.category='"+category+"' AND students.fName='"+fName+"' AND students.mName='"+mName+"' AND students.dobD='"+dobDay+"' AND students.dobM='"+dobMonth+"' AND students.dobY='"+dobYear+"'";
+            rs = stmt.executeQuery(sql);
+
+            String databaseRoll = rs.getString("rollNumber");
+            StringBuilder genRoll = new StringBuilder();
+
+            genRoll.append("0".repeat(Math.max(0, 6 - (databaseRoll.length() + 1))));   //appending required 0's to roll
+
+            genRoll.append(databaseRoll);
+
+            if(category.equals("general")){
+                genRoll.append('G');
+            }else{
+                genRoll.append('R');
+            }
+
+            JOptionPane.showMessageDialog(null,"Registered Successful! Your roll Number is "+ genRoll);
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null,e.getMessage());

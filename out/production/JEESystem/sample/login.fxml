@@ -48,6 +48,7 @@
                   <Label fx:id="registerLabel" layoutX="212.0" layoutY="40.0" text="Register">
                   </Label>
                   <JFXTextField fx:id="candidateName" layoutX="22.0" layoutY="166.0" prefHeight="35.0" prefWidth="250.0" promptText="Candidate's Name" />
+                  <JFXPasswordField fx:id="regPassword" layoutX="22.0" layoutY="225.0" prefHeight="35.0" prefWidth="250.0" promptText="Password" />
                   <JFXTextField fx:id="fatherName" layoutX="22.0" layoutY="285.0" prefHeight="35.0" prefWidth="250.0" promptText="Father's Name" />
                   <JFXTextField fx:id="motherName" layoutX="22.0" layoutY="344.0" prefHeight="35.0" prefWidth="250.0" promptText="Mother's Name" />
                   <JFXRadioButton fx:id="generalBtn" layoutX="409.0" layoutY="176.0" selected="true" text="General" textFill="#718194">
@@ -76,7 +77,6 @@
                   <JFXComboBox fx:id="daydropdown" layoutX="306.0" layoutY="323.0" prefHeight="31.0" prefWidth="59.0" promptText="Day" unFocusColor="#333a43" />
                   <JFXComboBox fx:id="monthdropdown" layoutX="381.0" layoutY="323.0" prefHeight="31.0" prefWidth="113.0" promptText="Month" unFocusColor="#333a43" />
                   <JFXComboBox fx:id="yeardropdown" layoutX="510.0" layoutY="328.0" promptText="Year" unFocusColor="#333a43" AnchorPane.rightAnchor="15.0" />
-                  <JFXPasswordField fx:id="regPassword" layoutX="22.0" layoutY="225.0" prefHeight="35.0" prefWidth="250.0" promptText="Password" />
                </children>
             </AnchorPane>
          </children>

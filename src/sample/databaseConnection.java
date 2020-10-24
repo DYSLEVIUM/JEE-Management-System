@@ -15,7 +15,7 @@ public class databaseConnection {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(JDBC_URL);    //  connecting to database
         }catch (ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null,e+"");
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
         return conn;
     }
