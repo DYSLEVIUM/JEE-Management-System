@@ -2,6 +2,7 @@ package sample;
 
 import com.jfoenix.controls.*;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +19,7 @@ import javafx.stage.StageStyle;
 
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -311,5 +313,34 @@ public class loginController implements Initializable {
     public void minimizeBtnClick(){
         Stage stage = (Stage) minimizeBtn.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    public void meritListBtnClick(ActionEvent actionEvent) throws IOException {
+        //closing current stage
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        stage.close();
+
+        //making another stage
+        Stage meritListStage = new Stage();
+        meritListStage.initStyle(StageStyle.UNDECORATED);
+
+        Parent admin = FXMLLoader.load(getClass().getResource("meritList.fxml"));
+
+        Scene scene = new Scene(admin, Main.height , Main.width);
+
+        scene.getStylesheets().add(getClass().getResource("../res/meritList.css").toExternalForm());
+        meritListStage.setTitle("Merit List Pane");
+
+        scene.setFill(Color.TRANSPARENT);
+        meritListStage.initStyle(StageStyle.TRANSPARENT);
+
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
+
+        //  setting position of window at center
+        meritListStage.setX((screenBounds.getMaxX()-Main.height)/2);
+        meritListStage.setY((screenBounds.getMaxY()-Main.width)/2);
+
+        meritListStage.setScene(scene);
+        meritListStage.show();
     }
 }
