@@ -47,3 +47,43 @@
     -fx-text-fill: #fff;
     -fx-cursor: default;
 }
+
+#backBtn{
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-padding: 7px 25px;
+    -fx-border-color: #3a92ef;
+    -fx-text-fill: #3a92ef;
+}
+
+#backBtn:hover{
+    -fx-background-color: #3a92ef;
+    -fx-text-fill: #fff;
+    -fx-border-style: solid;
+    -fx-cursor: hand;
+}
+
+#updateBtn{
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-padding: 7px 25px;
+    -fx-border-color: #3a92ef;
+    -fx-text-fill: #3a92ef;
+}
+
+#updateBtn:hover{
+    -fx-background-color: #3a92ef;
+    -fx-text-fill: #fff;
+    -fx-border-style: solid;
+    -fx-cursor: hand;
+}
+
+.text-field {
+    -fx-prompt-text-fill: #718194;
+    -fx-text-fill: #bacde5;
+}
+
+#studentName,#studentCategory,#studentRoll,#studentcM,#studentpM,#studentmM,#studentSex{
+    -fx-text-fill: #3a92ef;
+    -fx-font-weight: 500;
+}

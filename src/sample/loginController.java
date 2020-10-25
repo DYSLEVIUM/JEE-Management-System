@@ -276,7 +276,9 @@ public class loginController implements Initializable {
             sql = "SELECT * FROM students WHERE students.studentName='"+studentName+"' AND students.password='"+password+"' AND students.category='"+category+"' AND students.fName='"+fName+"' AND students.mName='"+mName+"' AND students.dobD='"+dobDay+"' AND students.dobM='"+dobMonth+"' AND students.dobY='"+dobYear+"'";
             rs = stmt.executeQuery(sql);
 
-            String databaseRoll = rs.getString("rollNumber");
+            int databaseRoll = rs.getInt("rollNumber");
+
+            System.out.println(databaseRoll);
 
             //  inserting into marks database
             sql = "INSERT INTO marks VALUES ('"+databaseRoll+"','"+ 0 +"', '"+0+"','"+0+"')";
@@ -284,7 +286,7 @@ public class loginController implements Initializable {
 
             StringBuilder genRoll = new StringBuilder();
 
-            genRoll.append("0".repeat(Math.max(0, 6 - (databaseRoll.length() + 1))));   //appending required 0's to roll
+            genRoll.append("0".repeat(Math.max(0, 6 - (String.valueOf(databaseRoll).length()+ 1))));   //appending required 0's to roll
 
             genRoll.append(databaseRoll);
 

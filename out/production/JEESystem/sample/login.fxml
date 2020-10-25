@@ -69,7 +69,6 @@
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Label>
-                  <JFXButton fx:id="registerBtn" buttonType="RAISED" layoutX="258.0" layoutY="450.0" onAction="#registerBtnClick" text="Register" textFill="WHITE" />
                   <Label layoutX="308.0" layoutY="275.0" text="Date of Birth :">
                      <font>
                         <Font size="14.0" />
@@ -77,6 +76,7 @@
                   <JFXComboBox fx:id="daydropdown" layoutX="306.0" layoutY="323.0" prefHeight="31.0" prefWidth="59.0" promptText="Day" unFocusColor="#333a43" />
                   <JFXComboBox fx:id="monthdropdown" layoutX="381.0" layoutY="323.0" prefHeight="31.0" prefWidth="113.0" promptText="Month" unFocusColor="#333a43" />
                   <JFXComboBox fx:id="yeardropdown" layoutX="510.0" layoutY="328.0" promptText="Year" unFocusColor="#333a43" AnchorPane.rightAnchor="15.0" />
+                  <JFXButton fx:id="registerBtn" buttonType="RAISED" layoutX="258.0" layoutY="450.0" onAction="#registerBtnClick" text="Register" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>

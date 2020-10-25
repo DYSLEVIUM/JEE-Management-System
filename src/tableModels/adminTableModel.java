@@ -40,6 +40,7 @@ public class adminTableModel {
     public void setRollnumber(String roll){
         this.rollnumber = roll;
     }
+
     public void setStudentName(String studentName){
         this.studentName = studentName;
     }
