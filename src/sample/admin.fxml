@@ -59,8 +59,8 @@
             <Label layoutX="71.0" layoutY="280.0" text="Maths :" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="300.0" />
             <Label layoutX="76.0" layoutY="327.0" text="Physics :" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="350.0" />
             <Label layoutX="76.0" layoutY="367.0" text="Chemistry :" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="400.0" />
-            <JFXTextField fx:id="studentMp" layoutX="175.0" layoutY="346.0" prefWidth="30.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="346.0" />
             <JFXTextField fx:id="studentMm" layoutX="175.0" layoutY="296.0" prefWidth="30.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="296.0" />
+            <JFXTextField fx:id="studentMp" layoutX="175.0" layoutY="346.0" prefWidth="30.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="346.0" />
             <JFXTextField fx:id="studentMc" layoutX="175.0" layoutY="396.0" prefWidth="30.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="396.0" />
 
              <JFXButton fx:id="backBtn" buttonType="RAISED" layoutX="241.0" layoutY="451.0" onAction="#backBtnClick" prefWidth="100.0" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="241.0" AnchorPane.topAnchor="451.0" />

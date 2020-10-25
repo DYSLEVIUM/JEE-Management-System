@@ -19,16 +19,16 @@
         </AnchorPane>
         <AnchorPane layoutY="61.0" prefHeight="539.0" prefWidth="1000.0">
             <children>
-                <TableView fx:id="meritListTableView" layoutX="400.0" layoutY="170.0" prefHeight="504.0" prefWidth="603.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0">
+                <TableView fx:id="meritListTableView" layoutX="400.0" layoutY="170.0" prefHeight="504.0" prefWidth="603.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
                     <columns>
                         <TableColumn fx:id="rank" prefWidth="98.0" text="Rank" />
-                        <TableColumn fx:id="tableRoll" prefWidth="98.0" text="Roll Number" />
-                        <TableColumn fx:id="tableName" prefWidth="156.0" text="Student Name" />
-                        <TableColumn fx:id="tableCategory" prefWidth="93.0" text="Category" />
-                        <TableColumn fx:id="totalMarks" prefWidth="93.0" text="Total Marks" />
-                        <TableColumn fx:id="tableMaths" prefWidth="76.0" text="Maths" />
-                        <TableColumn fx:id="tablePhysics" prefWidth="92.0" text="Physics" />
-                        <TableColumn fx:id="tableChemistry" prefWidth="87.0" text="Chemistry" />
+                        <TableColumn fx:id="tableRoll" prefWidth="127.0" text="Roll Number" />
+                        <TableColumn fx:id="tableName" prefWidth="177.0" text="Student Name" />
+                        <TableColumn fx:id="tableCategory" prefWidth="96.0" text="Category" />
+                        <TableColumn fx:id="totalMarks" prefWidth="114.0" text="Total Marks" />
+                        <TableColumn fx:id="tableMaths" prefWidth="88.0" text="Maths" />
+                        <TableColumn fx:id="tablePhysics" prefWidth="93.0" text="Physics" />
+                        <TableColumn fx:id="tableChemistry" prefWidth="106.0" text="Chemistry" />
                     </columns>
                 </TableView>
               <JFXButton fx:id="backBtn" buttonType="RAISED" layoutX="450.0" layoutY="481.0" onAction="#backBtnClick" prefWidth="100.0" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="481.0" />
