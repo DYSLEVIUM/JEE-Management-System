@@ -280,8 +280,6 @@ public class loginController implements Initializable {
 
             int databaseRoll = rs.getInt("rollNumber");
 
-            System.out.println(databaseRoll);
-
             //  inserting into marks database
             sql = "INSERT INTO marks VALUES ('"+databaseRoll+"','"+ 0 +"', '"+0+"','"+0+"')";
             stmt.executeUpdate(sql);
