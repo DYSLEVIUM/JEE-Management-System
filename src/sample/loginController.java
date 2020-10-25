@@ -231,7 +231,6 @@ public class loginController implements Initializable {
                     candidateStage.setScene(scene);
                     candidateStage.show();
 
-                    stmt.closeOnCompletion();
                 }else
                     throw new Exception("Roll Number or Password is incorrect!");
             }
@@ -298,8 +297,6 @@ public class loginController implements Initializable {
             }else{
                 genRoll.append('R');
             }
-
-            stmt.closeOnCompletion();
 
             JOptionPane.showMessageDialog(null,"Registered Successful! Your roll Number is "+ genRoll);
         }

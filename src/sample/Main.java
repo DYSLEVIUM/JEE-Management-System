@@ -10,6 +10,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.swing.*;
 import java.sql.*;
 
 public class Main extends Application {
@@ -44,32 +45,15 @@ public class Main extends Application {
 
     public static void main(String[] args) throws SQLException {
         Connection conn = databaseConnection.connect();
+        Statement stmt = conn.createStatement();
 
-        //checking if table exists
-        DatabaseMetaData dbm = conn.getMetaData();
-        ResultSet tables = dbm.getTables(null,null,"students",null);
+        //  making students table if it does not exist
+        String sql = "CREATE TABLE IF NOT EXISTS students (rollnumber INTEGER PRIMARY KEY AUTOINCREMENT, password VARCHAR(25) NOT NULL , studentName TEXT NOT NULL, fName TEXT NOT NULL, mName TEXT NOT NULL, sex TEXT NOT NULL, category TEXT NOT NULL, dobD INTEGER NOT NULL, dobM TEXT NOT NULL, dobY INTEGER NOT NULL);";
+        stmt.execute(sql);
 
-        //  if students table doesn't exist, create table
-        if(!tables.next()){
-            Statement stmt = conn.createStatement();
-
-            String sql = "CREATE TABLE students (rollnumber INTEGER PRIMARY KEY AUTOINCREMENT, password VARCHAR(25) NOT NULL , studentName TEXT NOT NULL, fName TEXT NOT NULL, mName TEXT NOT NULL, sex TEXT NOT NULL, category TEXT NOT NULL, dobD INTEGER NOT NULL, dobM TEXT NOT NULL, dobY INTEGER NOT NULL);";
-            stmt.execute(sql);
-
-            stmt.closeOnCompletion();
-        }
-
-        tables = dbm.getTables(null,null,"marks",null);
-
-        //  if students table doesn't exist, create table
-        if(!tables.next()){
-            Statement stmt = conn.createStatement();
-
-            String sql = "CREATE TABLE marks (rollnumber INTEGER NOT NULL, maths INTEGER DEFAULT 0 CHECK ( maths<=360 ), physics INTEGER DEFAULT 0 CHECK ( physics<=360 ), chemistry INTEGER DEFAULT 0 CHECK ( chemistry<=360 ),FOREIGN KEY (rollnumber) REFERENCES students(rollnumber));";
-            stmt.execute(sql);
-
-            stmt.closeOnCompletion();
-        }
+        //  making marks table if does not exist
+        sql = "CREATE TABLE IF NOT EXISTS marks (rollnumber INTEGER NOT NULL, maths INTEGER DEFAULT 0 CHECK ( maths<=360 ), physics INTEGER DEFAULT 0 CHECK ( physics<=360 ), chemistry INTEGER DEFAULT 0 CHECK ( chemistry<=360 ),FOREIGN KEY (rollnumber) REFERENCES students(rollnumber));";
+        stmt.execute(sql);
 
         launch(args);
     }

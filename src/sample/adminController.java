@@ -134,8 +134,6 @@ public class adminController implements Initializable {
             oblist.add(new adminTableModel(genRoll.toString(),rs.getString("studentName").substring(0,1).toUpperCase()+rs.getString("studentName").substring(1),rs.getString("category").substring(0,1).toUpperCase()+rs.getString("category").substring(1),rs.getInt("maths"),rs.getInt("physics"),rs.getInt("chemistry")));
         }
 
-        stmt.closeOnCompletion();
-
         tableRoll.setCellValueFactory(new PropertyValueFactory<>("rollnumber"));
         tableName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
         tableCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
@@ -158,15 +156,6 @@ public class adminController implements Initializable {
     public void updateBtnClick(ActionEvent actionEvent) throws SQLException {
         try{
             String sid = this.studentRoll.getText();
-            String category = this.studentCategory.getText().toLowerCase();
-
-            if(sid.charAt(sid.length()-1)=='G'){
-                category = "general";
-            }else if(sid.charAt(sid.length()-1)=='R'){
-                category = "reservation";
-            }else{
-                throw new Exception("Incorrect Roll Number!");
-            }
 
             int id = 0;
             for(int i=0;i<sid.length()-1;++i){
@@ -180,10 +169,9 @@ public class adminController implements Initializable {
             Connection conn = databaseConnection.connect();
             Statement stmt = conn.createStatement();
 
-            String sql = "UPDATE marks SET maths='"+(Integer.parseInt(this.studentMm.getText()))+"' WHERE rollnumber='"+id+"'";
-            stmt.executeUpdate(sql);
+            String sql = "UPDATE marks SET maths="+Integer.parseInt(this.studentMm.getText())+",physics="+Integer.parseInt(this.studentMp.getText())+",chemistry="+Integer.parseInt(this.studentMc.getText())+" WHERE rollnumber="+id+"";
 
-            stmt.closeOnCompletion();
+            stmt.executeUpdate(sql);
 
             //  clearing table
             oblist.clear();
