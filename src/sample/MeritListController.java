@@ -117,7 +117,7 @@ public class MeritListController implements Initializable {
                 genRoll.append('R');
             }
 
-            oblist.add(new meritListTableModel(++i,genRoll.toString(),rs.getString("studentname"),rs.getString("category"),rs.getInt("total"),rs.getInt("maths"),rs.getInt("physics"),rs.getInt("chemistry")));
+            oblist.add(new meritListTableModel(++i,genRoll.toString(),rs.getString("studentname").substring(0,1).toUpperCase()+rs.getString("studentname").substring(1),rs.getString("category").substring(0,1).toUpperCase()+rs.getString("category").substring(1),rs.getInt("total"),rs.getInt("maths"),rs.getInt("physics"),rs.getInt("chemistry")));
         }
 
         rank.setCellValueFactory(new PropertyValueFactory<>("rank"));

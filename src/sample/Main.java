@@ -55,6 +55,8 @@ public class Main extends Application {
 
             String sql = "CREATE TABLE students (rollnumber INTEGER PRIMARY KEY AUTOINCREMENT, password VARCHAR(25) NOT NULL , studentName TEXT NOT NULL, fName TEXT NOT NULL, mName TEXT NOT NULL, sex TEXT NOT NULL, category TEXT NOT NULL, dobD INTEGER NOT NULL, dobM TEXT NOT NULL, dobY INTEGER NOT NULL);";
             stmt.execute(sql);
+
+            stmt.closeOnCompletion();
         }
 
         tables = dbm.getTables(null,null,"marks",null);
@@ -65,6 +67,8 @@ public class Main extends Application {
 
             String sql = "CREATE TABLE marks (rollnumber INTEGER NOT NULL, maths INTEGER DEFAULT 0 CHECK ( maths<=360 ), physics INTEGER DEFAULT 0 CHECK ( physics<=360 ), chemistry INTEGER DEFAULT 0 CHECK ( chemistry<=360 ),FOREIGN KEY (rollnumber) REFERENCES students(rollnumber));";
             stmt.execute(sql);
+
+            stmt.closeOnCompletion();
         }
 
         launch(args);

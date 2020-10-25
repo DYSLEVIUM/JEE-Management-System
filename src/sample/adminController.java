@@ -118,7 +118,6 @@ public class adminController implements Initializable {
         String sql = "SELECT students.rollnumber, students.studentName,students.category, marks.maths, marks.physics, marks.chemistry FROM students, marks WHERE students.rollnumber=marks.rollnumber";
         ResultSet rs = stmt.executeQuery(sql);
 
-
         while(rs.next()){
             StringBuilder genRoll = new StringBuilder();
 
@@ -134,6 +133,8 @@ public class adminController implements Initializable {
 
             oblist.add(new adminTableModel(genRoll.toString(),rs.getString("studentName").substring(0,1).toUpperCase()+rs.getString("studentName").substring(1),rs.getString("category").substring(0,1).toUpperCase()+rs.getString("category").substring(1),rs.getInt("maths"),rs.getInt("physics"),rs.getInt("chemistry")));
         }
+
+        stmt.closeOnCompletion();
 
         tableRoll.setCellValueFactory(new PropertyValueFactory<>("rollnumber"));
         tableName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
@@ -179,10 +180,10 @@ public class adminController implements Initializable {
             Connection conn = databaseConnection.connect();
             Statement stmt = conn.createStatement();
 
-            String sql;
-
-            sql = "UPDATE marks SET maths='"+Integer.parseInt(this.studentMm.getText())+"',physics='"+Integer.parseInt(this.studentMp.getText())+"', chemistry='"+Integer.parseInt(this.studentMc.getText())+"' WHERE rollnumber='"+id+"'";
+            String sql = "UPDATE marks SET maths='"+(Integer.parseInt(this.studentMm.getText()))+"' WHERE rollnumber='"+id+"'";
             stmt.executeUpdate(sql);
+
+            stmt.closeOnCompletion();
 
             //  clearing table
             oblist.clear();
