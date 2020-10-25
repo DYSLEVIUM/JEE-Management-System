@@ -138,7 +138,7 @@ public class loginController implements Initializable {
             String category;
 
             //  checking if user is admin
-            if(sid.equals("test") && pwd.equals("test")){
+            if(sid.equals("admin") && pwd.equals("admin")){
                 //closing current stage
                 Stage stage = (Stage) closeBtn.getScene().getWindow();
                 stage.close();
