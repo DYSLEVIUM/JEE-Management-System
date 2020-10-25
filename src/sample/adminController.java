@@ -1,12 +1,20 @@
 package sample;
 
+import com.jfoenix.controls.JFXTreeTableView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import net.proteanit.sql.DbUtils;
 
+import javax.swing.*;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class adminController implements Initializable {
@@ -21,6 +29,9 @@ public class adminController implements Initializable {
 
     @FXML
     private Button minimizeBtn;
+
+    @FXML
+    private JFXTreeTableView studentTableAdminView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,6 +49,17 @@ public class adminController implements Initializable {
             stage.setX(e.getScreenX() + xOffset);
             stage.setY(e.getScreenY() + yOffset);
         });
+
+        try{
+            Connection conn = databaseConnection.connect();
+            Statement stmt = conn.createStatement();
+
+            String sql = "SELECT students.rollnumber, students.studentName,students.category, marks.maths, marks.physics, marks.chemistry FROM students, marks WHERE students.rollnumber=marks.rollnumber";
+            ResultSet rs = stmt.executeQuery(sql);
+        }catch(Exception e){
+
+            JOptionPane.showMessageDialog(null,e);
+        }
     }
 
 
@@ -50,6 +72,4 @@ public class adminController implements Initializable {
         Stage stage = (Stage) minimizeBtn.getScene().getWindow();
         stage.setIconified(true);
     }
-
-
 }

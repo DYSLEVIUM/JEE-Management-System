@@ -135,88 +135,89 @@ public class loginController implements Initializable {
 
             String category;
 
-            if(sid.charAt(sid.length()-1)=='G'){
-                category = "general";
-            }else if(sid.charAt(sid.length()-1)=='R'){
-                category = "reservation";
-            }else{
-                throw new Exception("Incorrect Roll Number!");
-            }
-
-            int id = 0;
-            for(int i=0;i<sid.length()-1;++i){
-                if(sid.charAt(i)>='0'&& sid.charAt(i)<='9'){
-                    id=id*10+(sid.charAt(i)-'0');
-                }else{
-                    throw new Exception("Incorrect Roll Number!");
-                }
-            }
-
-            conn = databaseConnection.connect();
-            stmt = conn.createStatement();
-
-            String sql = "SELECT * FROM students WHERE students.rollnumber='"+id+"' AND students.password='"+pwd+"' AND students.category='"+category+"'";
-            rs = stmt.executeQuery(sql);
-
-            if(rs.next()){
+            //  checking if user is admin
+            if(sid.equals("test") && pwd.equals("test")){
                 //closing current stage
                 Stage stage = (Stage) closeBtn.getScene().getWindow();
                 stage.close();
 
                 //making another stage
-                Stage candidateStage = new Stage();
-                candidateStage.initStyle(StageStyle.UNDECORATED);
+                Stage adminStage = new Stage();
+                adminStage.initStyle(StageStyle.UNDECORATED);
 
-                Parent admin = FXMLLoader.load(getClass().getResource("candidate.fxml"));
+                Parent admin = FXMLLoader.load(getClass().getResource("admin.fxml"));
 
                 Scene scene = new Scene(admin, Main.height , Main.width);
 
-                scene.getStylesheets().add(getClass().getResource("../res/candidate.css").toExternalForm());
-                candidateStage.setTitle("Candidate Details - Student");
+                scene.getStylesheets().add(getClass().getResource("../res/admin.css").toExternalForm());
+                adminStage.setTitle("Candidate Details - Admin");
 
                 scene.setFill(Color.TRANSPARENT);
-                candidateStage.initStyle(StageStyle.TRANSPARENT);
+                adminStage.initStyle(StageStyle.TRANSPARENT);
 
                 Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
 
                 //  setting position of window at center
-                candidateStage.setX((screenBounds.getMaxX()-Main.height)/2);
-                candidateStage.setY((screenBounds.getMaxY()-Main.width)/2);
+                adminStage.setX((screenBounds.getMaxX()-Main.height)/2);
+                adminStage.setY((screenBounds.getMaxY()-Main.width)/2);
 
-                candidateStage.setScene(scene);
-                candidateStage.show();
+                adminStage.setScene(scene);
+                adminStage.show();
             }else{
-                if(sid.equals("test") && pwd.equals("test")){
+                if(sid.charAt(sid.length()-1)=='G'){
+                    category = "general";
+                }else if(sid.charAt(sid.length()-1)=='R'){
+                    category = "reservation";
+                }else{
+                    throw new Exception("Incorrect Roll Number!");
+                }
+
+                int id = 0;
+                for(int i=0;i<sid.length()-1;++i){
+                    if(sid.charAt(i)>='0'&& sid.charAt(i)<='9'){
+                        id=id*10+(sid.charAt(i)-'0');
+                    }else{
+                        throw new Exception("Incorrect Roll Number!");
+                    }
+                }
+
+                conn = databaseConnection.connect();
+                stmt = conn.createStatement();
+
+                String sql = "SELECT * FROM students WHERE students.rollnumber='"+id+"' AND students.password='"+pwd+"' AND students.category='"+category+"'";
+                rs = stmt.executeQuery(sql);
+
+                if(rs.next()){
                     //closing current stage
                     Stage stage = (Stage) closeBtn.getScene().getWindow();
                     stage.close();
 
                     //making another stage
-                    Stage adminStage = new Stage();
-                    adminStage.initStyle(StageStyle.UNDECORATED);
+                    Stage candidateStage = new Stage();
+                    candidateStage.initStyle(StageStyle.UNDECORATED);
 
-                    Parent admin = FXMLLoader.load(getClass().getResource("admin.fxml"));
+                    Parent admin = FXMLLoader.load(getClass().getResource("candidate.fxml"));
 
                     Scene scene = new Scene(admin, Main.height , Main.width);
 
-                    scene.getStylesheets().add(getClass().getResource("../res/admin.css").toExternalForm());
-                    adminStage.setTitle("Candidate Details - Admin");
+                    scene.getStylesheets().add(getClass().getResource("../res/candidate.css").toExternalForm());
+                    candidateStage.setTitle("Candidate Details - Student");
 
                     scene.setFill(Color.TRANSPARENT);
-                    adminStage.initStyle(StageStyle.TRANSPARENT);
+                    candidateStage.initStyle(StageStyle.TRANSPARENT);
 
                     Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
 
                     //  setting position of window at center
-                    adminStage.setX((screenBounds.getMaxX()-Main.height)/2);
-                    adminStage.setY((screenBounds.getMaxY()-Main.width)/2);
+                    candidateStage.setX((screenBounds.getMaxX()-Main.height)/2);
+                    candidateStage.setY((screenBounds.getMaxY()-Main.width)/2);
 
-                    adminStage.setScene(scene);
-                    adminStage.show();
+                    candidateStage.setScene(scene);
+                    candidateStage.show();
+
                 }else
-                    JOptionPane.showMessageDialog(null,"Roll Number or Password is incorrect!");
+                    throw new Exception("Roll Number or Password is incorrect!");
             }
-            
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e.getMessage());
         }
