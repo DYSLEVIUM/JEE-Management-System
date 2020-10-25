@@ -253,15 +253,21 @@ public class loginController implements Initializable {
                 throw new Exception("Candidate Alredy exists!");
             }
 
-            //  inserting data to database
+            //  inserting into students database
             sql = "INSERT INTO students(password, studentName, fName, mName, sex, category, dobD, dobM, dobY) VALUES ('"+password+"','"+studentName+"', '"+fName+"','"+mName+"', '"+selectedSex+"', '"+category+"', '"+dobDay+"', '"+dobMonth+"', '"+dobYear+"')";
             stmt.executeUpdate(sql);
+
 
             //  getting the roll number from database
             sql = "SELECT * FROM students WHERE students.studentName='"+studentName+"' AND students.password='"+password+"' AND students.category='"+category+"' AND students.fName='"+fName+"' AND students.mName='"+mName+"' AND students.dobD='"+dobDay+"' AND students.dobM='"+dobMonth+"' AND students.dobY='"+dobYear+"'";
             rs = stmt.executeQuery(sql);
 
             String databaseRoll = rs.getString("rollNumber");
+
+            //  inserting into marks database
+            sql = "INSERT INTO marks VALUES ('"+databaseRoll+"','"+ 0 +"', '"+0+"','"+0+"')";
+            stmt.executeUpdate(sql);
+
             StringBuilder genRoll = new StringBuilder();
 
             genRoll.append("0".repeat(Math.max(0, 6 - (databaseRoll.length() + 1))));   //appending required 0's to roll

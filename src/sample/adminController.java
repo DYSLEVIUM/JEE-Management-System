@@ -1,14 +1,17 @@
 package sample;
 
+import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import net.proteanit.sql.DbUtils;
+import javafx.util.Callback;
+import tableModels.adminTableModel;
 
 import javax.swing.*;
 import java.net.URL;
@@ -18,6 +21,7 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class adminController implements Initializable {
+
     @FXML
     private AnchorPane draggableArea;
 
@@ -31,7 +35,27 @@ public class adminController implements Initializable {
     private Button minimizeBtn;
 
     @FXML
-    private JFXTreeTableView studentTableAdminView;
+    private TableView<adminTableModel> studentTableAdminView;
+
+    @FXML
+    public TableColumn<adminTableModel,String> tableRoll;
+
+    @FXML
+    public TableColumn<adminTableModel,String> tableName;
+
+    @FXML
+    public TableColumn<adminTableModel, String> tableCategory;
+
+    @FXML
+    public TableColumn<adminTableModel, Integer> tableMaths;
+
+    @FXML
+    public TableColumn<adminTableModel, Integer> tablePhysics;
+
+    @FXML
+    public TableColumn<adminTableModel, Integer> tableChemistry;
+
+    ObservableList<adminTableModel> oblist = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,12 +80,24 @@ public class adminController implements Initializable {
 
             String sql = "SELECT students.rollnumber, students.studentName,students.category, marks.maths, marks.physics, marks.chemistry FROM students, marks WHERE students.rollnumber=marks.rollnumber";
             ResultSet rs = stmt.executeQuery(sql);
-        }catch(Exception e){
 
+            while(rs.next()){
+                oblist.add(new adminTableModel(rs.getString("rollnumber"),rs.getString("studentName"),rs.getString("category"),rs.getInt("maths"),rs.getInt("physics"),rs.getInt("chemistry")));
+            }
+
+            tableRoll.setCellValueFactory(new PropertyValueFactory<>("rollnumber"));
+            tableName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+            tableCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+            tableMaths.setCellValueFactory(new PropertyValueFactory<>("maths"));
+            tablePhysics.setCellValueFactory(new PropertyValueFactory<>("physics"));
+            tableChemistry.setCellValueFactory(new PropertyValueFactory<>("chemistry"));
+
+            studentTableAdminView.setItems(oblist);
+
+        }catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
     }
-
 
     public void closeBtnClick(){
         Stage stage = (Stage) closeBtn.getScene().getWindow();

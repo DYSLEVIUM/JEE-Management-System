@@ -20,7 +20,7 @@
     <table id="9" parent="2" name="students"/>
     <column id="10" parent="6" name="rollnumber">
       <Position>1</Position>
-      <DataType>TEXT|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="11" parent="6" name="maths">

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../res/admin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.adminController">
@@ -17,8 +18,16 @@
         </AnchorPane>
       <AnchorPane layoutY="61.0" prefHeight="539.0" prefWidth="1000.0">
          <children>
-            <JFXTreeTableView fx:id="studentTableAdminView" layoutX="355.0" layoutY="100.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+            <TableView fx:id="studentTableAdminView" layoutX="400.0" layoutY="170.0" prefHeight="200.0" prefWidth="550.0" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0">
+              <columns>
+                <TableColumn fx:id="tableRoll" prefWidth="100.0" text="Roll Number" />
+                <TableColumn fx:id="tableName" prefWidth="109.0" text="Student Name" />
+                  <TableColumn fx:id="tableCategory" prefWidth="91.0" text="Category" />
+                  <TableColumn fx:id="tableMaths" prefWidth="75.0" text="Maths" />
+                  <TableColumn fx:id="tablePhysics" prefWidth="86.0" text="Physics" />
+                  <TableColumn fx:id="tableChemistry" prefWidth="88.0" text="Chemistry" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
     </children>
 </AnchorPane>
