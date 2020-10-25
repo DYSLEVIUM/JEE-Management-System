@@ -7,7 +7,7 @@
 
 .label{
     -fx-text-fill: #718194;
-    -fx-font-weight: 500;
+    -fx-font-weight: 800;
 }
 
 #draggableArea{
@@ -46,4 +46,9 @@
     -fx-background-color: #333a43;
     -fx-text-fill: #fff;
     -fx-cursor: default;
+}
+
+#studentName,#studentCategory,#studentRoll,#studentFName,#studentMName,#studentcM,#studentpM,#studentmM,#studentSex{
+    -fx-text-fill: #3a92ef;
+    -fx-font-weight: 500;
 }

@@ -188,6 +188,20 @@ public class loginController implements Initializable {
                 rs = stmt.executeQuery(sql);
 
                 if(rs.next()){
+                    //getting student info
+                    sql = "SELECT * FROM students,marks WHERE students.rollnumber='"+id+"' AND students.password='"+pwd+"' AND students.category='"+category+"' AND students.rollnumber=marks.rollnumber";
+                    rs = stmt.executeQuery(sql);
+
+                    candidateController.tstudentName =  rs.getString("studentName").substring(0,1).toUpperCase()+rs.getString("studentName").substring(1);
+                    candidateController.tstudentRoll =  sid;
+                    candidateController.tstudentSex =  rs.getString("sex").substring(0,1).toUpperCase()+rs.getString("sex").substring(1);
+                    candidateController.tstudentCategory =  rs.getString("category").substring(0,1).toUpperCase()+rs.getString("category").substring(1);
+                    candidateController.tstudentFName =  rs.getString("fName").substring(0,1).toUpperCase()+rs.getString("fName").substring(1);
+                    candidateController.tstudentMName =  rs.getString("mName").substring(0,1).toUpperCase()+rs.getString("mName").substring(1);
+                    candidateController.tstudentmM =  rs.getInt("maths");
+                    candidateController.tstudentpM =  rs.getInt("physics");
+                    candidateController.tstudentcM =  rs.getInt("chemistry");
+
                     //closing current stage
                     Stage stage = (Stage) closeBtn.getScene().getWindow();
                     stage.close();
