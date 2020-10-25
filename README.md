@@ -18,7 +18,8 @@ Follow the following steps to run this project :
 
 2.  If you are using IntelliJ IDEA, just open this project in IntelliJ IDEA and skip to step 5.
 
-3.  If you are using some another IDE, then open the project in your IDE.
+3.  If you are using some another IDE, then open the project in your IDE. Make sure your VM options are setup properly. In my case it was at:
+  - `$ --module-path "D:\dev\java\sdkAndIde\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml`
 
 4.  The libraries used in the project are under ./JEE-Management-System/.idea/libraries. Include all the libraries in your IDE project.
 
