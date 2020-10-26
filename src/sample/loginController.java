@@ -233,6 +233,7 @@ public class loginController implements Initializable {
 
                 }else
                     throw new Exception("Roll Number or Password is incorrect!");
+                stmt.closeOnCompletion();
             }
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e.getMessage());
@@ -266,13 +267,12 @@ public class loginController implements Initializable {
             rs = stmt.executeQuery(sql);
 
             if(rs.next()){
-                throw new Exception("Candidate Alredy exists!");
+                throw new Exception("Candidate Already exists!");
             }
 
             //  inserting into students database
             sql = "INSERT INTO students(password, studentName, fName, mName, sex, category, dobD, dobM, dobY) VALUES ('"+password+"','"+studentName+"', '"+fName+"','"+mName+"', '"+selectedSex+"', '"+category+"', '"+dobDay+"', '"+dobMonth+"', '"+dobYear+"')";
-            stmt.executeUpdate(sql);
-
+            stmt.execute(sql);
 
             //  getting the roll number from database
             sql = "SELECT * FROM students WHERE students.studentName='"+studentName+"' AND students.password='"+password+"' AND students.category='"+category+"' AND students.fName='"+fName+"' AND students.mName='"+mName+"' AND students.dobD='"+dobDay+"' AND students.dobM='"+dobMonth+"' AND students.dobY='"+dobYear+"'";
@@ -282,7 +282,7 @@ public class loginController implements Initializable {
 
             //  inserting into marks database
             sql = "INSERT INTO marks VALUES ('"+databaseRoll+"','"+ 0 +"', '"+0+"','"+0+"')";
-            stmt.executeUpdate(sql);
+            stmt.execute(sql);
 
             StringBuilder genRoll = new StringBuilder();
 
@@ -296,11 +296,13 @@ public class loginController implements Initializable {
                 genRoll.append('R');
             }
 
-            JOptionPane.showMessageDialog(null,"Registered Successful! Your roll Number is "+ genRoll);
+            JOptionPane.showMessageDialog(null,"Registered Successfully! Your roll Number is "+ genRoll);
+            stmt.closeOnCompletion();
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null,e.getMessage());
         }
+
     }
 
     public void closeBtnClick(){

@@ -55,6 +55,7 @@ public class Main extends Application {
         sql = "CREATE TABLE IF NOT EXISTS marks (rollnumber INTEGER NOT NULL, maths INTEGER DEFAULT 0 CHECK ( maths<=360 ), physics INTEGER DEFAULT 0 CHECK ( physics<=360 ), chemistry INTEGER DEFAULT 0 CHECK ( chemistry<=360 ),FOREIGN KEY (rollnumber) REFERENCES students(rollnumber));";
         stmt.execute(sql);
 
+        stmt.closeOnCompletion();
         launch(args);
     }
 }

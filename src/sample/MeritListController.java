@@ -130,7 +130,7 @@ public class MeritListController implements Initializable {
         tableChemistry.setCellValueFactory(new PropertyValueFactory<>("chemistry"));
 
         meritListTableView.setItems(oblist);
-
+        stmt.closeOnCompletion();
     }
 
     public void closeBtnClick(){

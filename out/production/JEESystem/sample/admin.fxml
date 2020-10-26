@@ -63,9 +63,9 @@
             <JFXTextField fx:id="studentMp" layoutX="175.0" layoutY="346.0" prefWidth="30.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="346.0" />
             <JFXTextField fx:id="studentMc" layoutX="175.0" layoutY="396.0" prefWidth="30.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="396.0" />
 
-             <JFXButton fx:id="backBtn" buttonType="RAISED" layoutX="241.0" layoutY="451.0" onAction="#backBtnClick" prefWidth="100.0" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="241.0" AnchorPane.topAnchor="451.0" />
              <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="63.0" layoutY="451.0" onAction="#updateBtnClick" prefWidth="100.0" text="Update" textFill="WHITE" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="451.0" />
-            <Label fx:id="studentName" layoutX="149.0" layoutY="102.0">
+             <JFXButton fx:id="backBtn" buttonType="RAISED" layoutX="241.0" layoutY="451.0" onAction="#backBtnClick" prefWidth="100.0" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="241.0" AnchorPane.topAnchor="451.0" />
+             <Label fx:id="studentName" layoutX="149.0" layoutY="102.0">
                <font>
                   <Font size="14.0" />
                </font>

@@ -142,6 +142,7 @@ public class adminController implements Initializable {
         tableChemistry.setCellValueFactory(new PropertyValueFactory<>("chemistry"));
 
         studentTableAdminView.setItems(oblist);
+        stmt.closeOnCompletion();
     }
 
     public void populateFields(adminTableModel mod){
@@ -171,7 +172,7 @@ public class adminController implements Initializable {
 
             String sql = "UPDATE marks SET maths="+Integer.parseInt(this.studentMm.getText())+",physics="+Integer.parseInt(this.studentMp.getText())+",chemistry="+Integer.parseInt(this.studentMc.getText())+" WHERE rollnumber="+id+"";
 
-            stmt.executeUpdate(sql);
+            stmt.execute(sql);
 
             //  clearing table
             oblist.clear();
@@ -180,7 +181,7 @@ public class adminController implements Initializable {
             populateTableFromDatabase();
 
             JOptionPane.showMessageDialog(null,"Update Successful!");
-
+            stmt.closeOnCompletion();
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
