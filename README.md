@@ -26,3 +26,15 @@ Follow the following steps to run this project :
 5.  Change the JDBC_URL to **"jdbc:sqlite:{YOUR_PATH_TO_PROJECT}/JEE-Management-System/src/res/db"** in the JEE-Management-System/src/sample/databaseConnection.java file.
 
 6.  Run the project.
+
+# Libraries and Plugins Used
+
+1.  JavaFx (libralry)
+
+2.  sqlite-jdbc-3.32.3.2.jar
+
+3.  rs2xml.jar
+
+4.  jfoenix-9.0.10.jar
+
+5.  Scene Builder
