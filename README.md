@@ -10,6 +10,8 @@ A JEE management system where students can register and will be assigned a roll 
 
 [![demo](https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.gif?raw=true)](https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.mp4?raw=true)
 
+_**Click on the gif to download a higher resolution video.**_
+
 # How to get this project running
 
 Follow the following steps to run this project :
