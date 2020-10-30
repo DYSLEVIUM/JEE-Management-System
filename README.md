@@ -23,16 +23,12 @@ Follow the following steps to run this project :
 
   - `$ cd JEE-Management-System`
 
-2.  If you are using IntelliJ IDEA, just open this project in IntelliJ IDEA and skip to step 5.
-
-3.  If you are using some another IDE, then open the project in your IDE. Make sure your VM options are setup properly. In my case it was at:
+2.  Open the project in your IDE. Make sure your VM options are setup properly. In my case it was at:
   - `$ --module-path "D:\dev\java\sdkAndIde\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml`
 
-4.  The libraries used in the project are under ./JEE-Management-System/.idea/libraries. Include all the libraries in your IDE project.
+4.  The libraries used in the project are under ./JEE-Management-System/libraries. Include all the libraries in your IDE project.
 
-5.  Change the JDBC_URL to **"jdbc:sqlite:{YOUR_PATH_TO_PROJECT}/JEE-Management-System/src/res/db"** in the JEE-Management-System/src/sample/databaseConnection.java file.
-
-6.  Run the project.
+5.  Run the project.
 
 # Libraries and Plugins Used
 
