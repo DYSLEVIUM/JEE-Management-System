@@ -1,19 +1,22 @@
 # JEE Management System
 
+## Demo
+<p align="center">
+  <a href="https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.mp4?raw=true"><img src="https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.gif?raw=true"></a>
+</p>
+
+_Click on the **[gif](https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.mp4?raw=true)** to download a higher resolution video._
+
+##  Details
+
 A JEE management system where students can register and will be assigned a roll number. An admin will be responsible to fill out the marks of the students.
 
 - This project is created in java and uses JavaFX for the GUI
 
 ![alt text](https://github.com/Pushpakant/JEE-Management-System/blob/master/preview.png?raw=true)
 
-# Demo
-<p align="center">
-  <a href="https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.mp4?raw=true"><img src="https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.gif?raw=true"></a>
-</p>
 
-_**Click on the gif to download a higher resolution video.**_
-
-# How to get this project running
+## How to get this project running
 
 Follow the following steps to run this project :
 
@@ -30,7 +33,7 @@ Follow the following steps to run this project :
 
 5.  Run the project.
 
-# Libraries and Plugins Used
+## Libraries and Plugins Used
 
 1.  JavaFx (libralry)
 
