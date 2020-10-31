@@ -29,13 +29,13 @@ Follow the following steps to run this project :
 2.  Open the project in your IDE. Make sure your VM options are setup properly. In my case it was at:
   - `$ --module-path "D:\dev\java\sdkAndIde\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml`. You can refer to **[openjfx.io](https://openjfx.io/openjfx-docs/)** on how to setup javafx on your machine.
 
-4.  The libraries used in the project are under ./JEE-Management-System/libraries. Include all the libraries in your IDE project.
+4.  The libraries used in the project are under **./JEE-Management-System/libraries**. Include all the libraries in your IDE project.
 
 5.  Run the project.
 
 ## Libraries and Plugins Used
 
-1.  JavaFx (libralry)
+1.  JavaFx (library)
 
 2.  sqlite-jdbc-3.32.3.2.jar
 
