@@ -27,7 +27,7 @@ Follow the following steps to run this project :
   - `$ cd JEE-Management-System`
 
 2.  Open the project in your IDE. Make sure your VM options are setup properly. In my case it was at:
-  - `$ --module-path "D:\dev\java\sdkAndIde\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml`. You can refer to [openjfx.io](https://openjfx.io/openjfx-docs/) on hiw to setup javafx on your machine.
+  - `$ --module-path "D:\dev\java\sdkAndIde\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml`. You can refer to **[openjfx.io](https://openjfx.io/openjfx-docs/)** on how to setup javafx on your machine.
 
 4.  The libraries used in the project are under ./JEE-Management-System/libraries. Include all the libraries in your IDE project.
 
