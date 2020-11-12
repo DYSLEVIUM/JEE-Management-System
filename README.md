@@ -13,7 +13,7 @@ A JEE management system where students can register and will be assigned a roll 
 
 - This project is created in java and uses JavaFX for the GUI
 
-![alt text](https://github.com/Pushpakant/JEE-Management-System/blob/master/preview.png?raw=true)
+![Preview](https://github.com/Pushpakant/JEE-Management-System/blob/master/preview.png?raw=true)
 
 
 ## How to get this project running
