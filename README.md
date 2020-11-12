@@ -2,10 +2,10 @@
 
 ## Demo
 <p align="center">
-  <a href="https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.mp4?raw=true"><img src="https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.gif?raw=true"></a>
+  <a href="https://github.com/Pushpakant/JEE-Management-System/blob/master/demo/demo.mp4?raw=true"><img src="https://github.com/Pushpakant/JEE-Management-System/blob/master/demo/demo.gif?raw=true"></a>
 </p>
 
-_Click on the **[gif](https://github.com/Pushpakant/JEE-Management-System/blob/master/demo.mp4?raw=true)** to download a higher resolution video._
+_Click on the **[gif](https://github.com/Pushpakant/JEE-Management-System/blob/master/demo/demo.mp4?raw=true)** to download a higher resolution video._
 
 ##  Details
 
@@ -13,7 +13,7 @@ A JEE management system where students can register and will be assigned a roll 
 
 - This project is created in java and uses JavaFX for the GUI
 
-![Preview](https://github.com/Pushpakant/JEE-Management-System/blob/master/preview.png?raw=true)
+![Preview](https://github.com/Pushpakant/JEE-Management-System/blob/master/demo/preview.png?raw=true)
 
 
 ## How to get this project running
