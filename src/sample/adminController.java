@@ -1,11 +1,8 @@
 package sample;
 
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -95,14 +92,11 @@ public class adminController implements Initializable {
             this.populateTableFromDatabase();
 
             //  adding event listener to table to populate fields when selected
-            studentTableAdminView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<adminTableModel>() {
-                @Override
-                public void changed(ObservableValue<? extends adminTableModel> observableValue, adminTableModel adminTableModel, adminTableModel t1) {
-                    if(studentTableAdminView.getSelectionModel().getSelectedItem()!=null){
-                        TableView.TableViewSelectionModel selectionModel = studentTableAdminView.getSelectionModel();
-                        adminTableModel selection = studentTableAdminView.getSelectionModel().getSelectedItem();
-                        populateFields(selection);
-                    }
+            studentTableAdminView.getSelectionModel().selectedItemProperty().addListener((observableValue, adminTableModel, t1) -> {
+                if(studentTableAdminView.getSelectionModel().getSelectedItem()!=null){
+                    TableView.TableViewSelectionModel selectionModel = studentTableAdminView.getSelectionModel();
+                    adminTableModel selection = studentTableAdminView.getSelectionModel().getSelectedItem();
+                    populateFields(selection);
                 }
             });
 
@@ -154,7 +148,7 @@ public class adminController implements Initializable {
         this.studentMc.setText(String.valueOf(mod.getChemistry()));
     }
 
-    public void updateBtnClick(ActionEvent actionEvent) throws SQLException {
+    public void updateBtnClick() {
         try{
             String sid = this.studentRoll.getText();
 
@@ -197,7 +191,7 @@ public class adminController implements Initializable {
         stage.setIconified(true);
     }
 
-    public void backBtnClick(ActionEvent actionEvent) throws IOException {
+    public void backBtnClick() throws IOException {
         Stage curStage = (Stage) closeBtn.getScene().getWindow();
         curStage.close();
 

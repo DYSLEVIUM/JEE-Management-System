@@ -10,7 +10,6 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import javax.swing.*;
 import java.sql.*;
 
 public class Main extends Application {
@@ -24,7 +23,7 @@ public class Main extends Application {
 
         Parent login = FXMLLoader.load(getClass().getResource("login.fxml"));
 
-        Scene scene = new Scene(login, this.height, this.width);
+        Scene scene = new Scene(login, height, width);
         scene.getStylesheets().add(getClass().getResource("../res/main.css").toExternalForm());   //  linking stylesheet
         primaryStage.setTitle("JEE Management System");
 
@@ -36,8 +35,8 @@ public class Main extends Application {
         Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
 
         //  setting position of window at center
-        primaryStage.setX((screenBounds.getMaxX()-this.height)/2);
-        primaryStage.setY((screenBounds.getMaxY()-this.width)/2);
+        primaryStage.setX((screenBounds.getMaxX()- height)/2);
+        primaryStage.setY((screenBounds.getMaxY()- width)/2);
 
         primaryStage.setResizable(false);   //  setting resizable to false
         primaryStage.show();
